@@ -1,0 +1,17 @@
+<section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
+  <div align="center" class="cargandoanim" *ngIf="_productosService.cargando">
+    <h2>Cargando</h2>
+    <div class="spinner-border" role="status">
+    </div>
+    <p>Espere por favor</p>
+  </div>
+  <div *ngIf="!_productosService.cargando" class="ae-masonry ae-masonry-md-2 ae-masonry-xl-4"><a *ngFor="let producto of _productosService.productos"
+      [routerLink]="['/item',producto.cod]" class="wow wow_fadeIn rk-item ae-masonry__item"><img
+        src="assets/productos/{{producto.url}}.jpg" alt="">
+      <div class="item-meta">
+        <h2>{{producto.titulo}}</h2>
+        <p>{{producto.categoria}}</p>
+      </div>
+    </a>
+  </div>
+</section>
